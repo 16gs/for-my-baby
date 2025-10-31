@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Decode Daddy's Desire</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🕵‍♀ Decode Daddy's Desire</h1>
+    <p>Solve each clue to unlock the final message...</p>
+
+    <div class="riddle">
+      <p>1️⃣ I’m warm, I’m soft, I’m where you lay—what am I?</p>
+      <input type="text" id="answer1" placeholder="Your answer">
+      <button onclick="checkAnswer(1)">Submit</button>
+      <div id="result1" class="result"></div>
+    </div>
+
+    <div class="riddle">
+      <p>2️⃣ I tick and tock, but when we’re together, I stop. What am I?</p>
+      <input type="text" id="answer2" placeholder="Your answer">
+      <button onclick="checkAnswer(2)">Submit</button>
+      <div id="result2" class="result"></div>
+    </div>
+
+    <div class="riddle">
+      <p>3️⃣ I’m sweet, I’m smooth, I melt on your lips. What am I?</p>
+      <input type="text" id="answer3" placeholder="Your answer">
+      <button onclick="checkAnswer(3)">Submit</button>
+      <div id="result3" class="result"></div>
+    </div>
+
+    <div id="final-message" class="hidden">
+      <h2>💌 Daddy’s Desire Unlocked 💌</h2>
+      <p>Tonight, it’s just us. Candles. Music. And a slow dance in the kitchen. Be ready 😘</p>
+    </div>
+  </div>
+
+  <script>
+    const answers = {
+      1: "bed",
+      2: "clock",
+      3: "chocolate"
+    };
+
+    const solved = { 1: false, 2: false, 3: false };
+
+    function checkAnswer(num) {
+      const input = document.getElementById(answer${num}).value.trim().toLowerCase();
+      const result = document.getElementById(result${num});
+      if (input === answers[num]) {
+        result.textContent = "✅ Correct!";
+        result.style.color = "lime";
+        solved[num] = true;
+        checkAllSolved();
+      } else {
+        result.textContent = "❌ Try again!";
+        result.style.color = "red";
+      }
+    }
+
+    function checkAllSolved() {
+      if (solved[1] && solved[2] && solved[3]) {
+        document.getElementById("final-message").classList.remove("hidden");
+      }
+    }
+  </script>
+</body>
+</html>
