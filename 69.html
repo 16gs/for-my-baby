@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Potion Picker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>💘 Pick Your Love Potion 💘</h1>
+    <div class="potion-menu">
+      <button class="potion" data-date="stargazing session with cozy blankets and hot cocoa.">Bold & Bubbly</button>
+      <button class="potion" data-date="Couple hickeys place of your choice.">Sweet & Sincere</button>
+      <button class="potion" data-date="A movie night with no pants on.">Spicy & Seductive</button>
+    </div>
+    <div id="date-idea" class="reveal"></div>
+  </div>
+
+  <script>
+    const buttons = document.querySelectorAll('.potion');
+    const output = document.getElementById('date-idea');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        output.textContent = button.dataset.date;
+        output.classList.add('show');
+      });
+    });
+  </script>
+</body>
+</html>
